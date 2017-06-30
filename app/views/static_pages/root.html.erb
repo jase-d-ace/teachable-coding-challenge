@@ -1,1 +1,16 @@
-Please build the search page here.
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <meta http-equiv="X-UA-Compatible" content="ie=edge">
+  <title>Teachable Coding Challenge</title>
+</head>
+<body>
+  <h1>Bitches</h1>
+  <%= form_tag search_gems_path, method: "get" do %>
+  <%= text_field_tag :gem, "", placeholder: "Enter a gem here" %>
+  <%= button_tag "submit" %>
+  <% end %>
+</body>
+</html>
