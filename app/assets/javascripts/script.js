@@ -1,20 +1,6 @@
 $(document).ready(() =>{
   console.log('javascript linked, bitches!');
 
-  //testing
-  $('.test-button').click(()=>{
-    $.ajax({
-      method: 'POST',
-      url: 'http://localhost:3000/search',
-      success: (data) =>{
-      console.log('got this back from ajax', data)
-      },
-      error: (error) =>{
-      console.log('ajax error: ', error)
-      }
-    });
-  });
-
   //putting together the ajax form
 $('.test-form').submit((e) =>{
     e.preventDefault();
@@ -38,11 +24,12 @@ $('.test-form').submit((e) =>{
   })
 
   const renderGem = (gem, array) =>{
+      let myStorage = localStorage;
     //holder div for a new gem
     let result = $('<div>', {
       class: 'search-result'
     });
-    let results = $('#search-results')
+    let results = $('#search-results').empty()
     //append holder div to the hardcoded HTML
     result.appendTo(results)
     //card-style div to display information about a gem
@@ -56,6 +43,15 @@ $('.test-form').submit((e) =>{
       href: `https://rubygems.org/gems/${gem.name}`
     });
     gemName.text(gem.name);
+    let favorite = $('<div>', {
+      class: 'save',
+      text: 'save?'
+    })
+    favorite.click(()=>{
+      myStorage.setItem(gem.name, gem.name)
+      console.log('myStorage: ', myStorage)
+    })
+    favorite.appendTo(newGem)
     gemName.appendTo(newGem);
 
     //add gem's information to the DOM
@@ -63,34 +59,24 @@ $('.test-form').submit((e) =>{
       class: 'gem-info'
     });
     gemInfo.text(gem.info);
-    gemInfo.appendTo(newGem);
+    gemInfo.appendTo(results);
 
     let dependencies = $('<div>', {
       class: 'dependencies'
-    }).appendTo(newGem)
+    }).appendTo(results)
 
     array.map((dependency) =>{
-      return $('<div>', {
-        class: 'dependency'
+      return $('<a>', {
+        class: 'dependency',
+        href: `https://rubygems.org/gems/${dependency}`
       }).text(dependency).appendTo(dependencies)
     })
   }
 
-
-
-  //add a click listener for the button that will save to localStorage
-  //localStorage.setItem('gem', 'the new gem')
-
-
   //we know how to save to local storage now
-  let myStorage = localStorage;
-  $('.test-storage').click(()=>{
-    myStorage.setItem('whatwewant', 'bitches');
-    console.log('myStorage: ', myStorage)
-  })
 
   $('.delete-storage').click(()=>{
-    myStorage.clear();
-    console.log('storage cleared', myStorage)
+    localStorage.clear();
+    console.log('storage cleared', localStorage)
   })
 })
