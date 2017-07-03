@@ -8,12 +8,13 @@
 </head>
 <body>
   <h1>Bitches</h1>
-  <%= form_tag search_gems_path, method: "get" do %>
-  <%= text_field_tag :gem, "", placeholder: "Enter a gem here" %>
+  <%= form_tag search_gems_path, method: "post", class: 'test-form' do %>
+  <%= text_field_tag :gem, "", placeholder: "Enter a gem here", class: "test-class" %>
   <%= button_tag "submit" %>
   <% end %>
 
   <button class='test-button'>Test your route here</button>
   <button class="test-storage">Test your local storage here</button>
+  <button class="delete-storage">Delete your storage here</button>
 </body>
 </html>

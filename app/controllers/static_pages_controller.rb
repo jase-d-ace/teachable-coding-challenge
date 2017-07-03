@@ -3,8 +3,7 @@ class StaticPagesController < ApplicationController
   end
 
   def search
-    @response = Gems.info 'httparty'
-    #eventually replace httparty with params[:gem]
+    @response = Gems.info params[:gem]
     render json: {
       response_data: @response
     }
