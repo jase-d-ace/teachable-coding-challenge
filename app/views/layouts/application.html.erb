@@ -8,8 +8,21 @@
   <%= yield :head %>
 </head>
 <body>
-
+  <div id="container">
+      <div id="landing">
+        <div class="nav">
+          <div class="content">
+          <div class="logo">
+        <%= image_tag("teachable_logo") %>
+        </div>
+        <div class="links">
+        <%= link_to "Search", "/" %>
+        <%= link_to "Favorites", "/favorites" %>
+        </div>
+      </div>
+      </div>
+    </div>
 <%= yield %>
-
+</div>
 </body>
 </html>
