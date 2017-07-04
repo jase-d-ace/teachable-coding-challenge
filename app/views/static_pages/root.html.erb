@@ -1,1 +1,11 @@
-Please build the search page here.
+  <div class="search">
+    <div id="search-bar">
+    <h1>Search Gems</h1>
+    <%= form_tag search_gems_path, method: "post", class: 'gem-form' do %>
+    <%= text_field_tag :gem, "", placeholder: "Enter a gem here", class: "gem-input" %>
+    <%= button_tag "submit" %>
+    <% end %>
+    </div>
+  <div id="search-results">
+  </div>
+</div>
