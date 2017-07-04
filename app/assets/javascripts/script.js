@@ -1,20 +1,19 @@
 $(document).ready(() =>{
-  console.log('javascript linked, bitches!');
 
   //putting together the ajax form
-$('.test-form').submit((e) =>{
+$('.gem-form').submit((e) =>{
+  //prevent default behavior
     e.preventDefault();
-    let gem = $('.test-class').val();
-    console.log('form submitted, bitches!');
-    console.log('this is what you\'re searching for: ', gem)
-    $.ajax({
+    //define value to pass to backend
+    let gem = $('.gem-input').val();
+    $.ajax({ //ajax call to hit the gem route
       method: 'POST',
       url: 'http://localhost:3000/search',
       data: {
         gem
       },
       success: data =>{
-        console.log('got this back from form ajax', data)
+        //data is parsed in the backend and given back in two sets
         renderGem(data.response_data, data.dependencies)
       },
       error: error =>{
@@ -49,21 +48,21 @@ $('.test-form').submit((e) =>{
     })
     favorite.click(()=>{
       myStorage.setItem(gem.name, gem.name)
-      console.log('myStorage: ', myStorage)
     })
-    favorite.appendTo(newGem)
     gemName.appendTo(newGem);
+    favorite.appendTo(newGem);
+
 
     //add gem's information to the DOM
     let gemInfo = $('<div>', {
       class: 'gem-info'
     });
-    gemInfo.text(gem.info);
+    gemInfo.text("Information: " +gem.info);
     gemInfo.appendTo(results);
 
     let dependencies = $('<div>', {
       class: 'dependencies'
-    }).appendTo(results)
+    }).text('Dependencies: ').appendTo(results)
 
     array.map((dependency) =>{
       return $('<a>', {
@@ -73,10 +72,7 @@ $('.test-form').submit((e) =>{
     })
   }
 
-  //we know how to save to local storage now
-
   $('.delete-storage').click(()=>{
     localStorage.clear();
-    console.log('storage cleared', localStorage)
   })
 })

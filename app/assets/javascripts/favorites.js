@@ -1,11 +1,8 @@
 $(document).ready(() =>{
-  console.log('favorites page linked, bitches')
 
   let myStorage = localStorage;
 
   myStorage.removeItem('better_errors_previous_commands')
-
-  console.log('my storage keys:', Object.keys(myStorage))
 
   let storageKeys = Object.keys(myStorage);
   let faves = $('#favorites-list')
