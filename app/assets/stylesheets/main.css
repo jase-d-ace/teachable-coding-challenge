@@ -34,25 +34,15 @@ body {
   -ms-flex-direction: column;
   margin-left: 50%;
   margin-right: 5%;
-  width: 10%;
+  width: 20%;
   height: 100%;
   flex-direction: column;
   align-content: flex-end;
 }
 
-.landing-container {
-  display: -webkit-flex;
-  display: -ms-flex;
-  display: flex;
-  -webkit-flex-direction: row;
-  -ms-flex-direction: row;
-  flex-direction: row;
-  justify-content: flex-end;
-}
-
 .logo {
-  margin-top: 100%;
-  margin-bottom: 500%;
+  margin-top: 50%;
+  margin-bottom: 200%;
 }
 
 .content {
@@ -65,9 +55,93 @@ body {
   -ms-align-items: flex-end;
   align-items: flex-end;
   height: 100%;
+  width: 100%;
+}
+
+.link {
+  width: 100%;
+}
+
+.link:hover {
+  background-color: rgba(255, 255, 255, 0.3);
+}
+
+.links a:hover {
+  color: #ffffff;
+  text-decoration: none;
+}
+
+.links a {
+  color: #ffffff;
+  font-size: 20px;
 }
 
 .links {
+  display: -webkit-flex;
+  display: -ms-flex;
+  display: flex;
   height: 100%;
-  padding: 20%;
+  padding-right: 10%;
+  -webkit-flex-direction: column;
+  -ms-flex-direction: column;
+  flex-direction: column;
+  align-items: space-between;
+}
+
+.search {
+  width: 100%;
+  display: -webkit-flex;
+  display: -ms-flex;
+  display: flex;
+  -webkit-flex-direction: column;
+  -ms-flex-direction: column;
+  flex-direction: column;
+  -ms-align-items: flex-start;
+  align-items: flex-start;
+  margin-top: 10%;
+  margin-left: 10%;
+}
+
+.gem-form {
+  width: 100%;
+}
+
+.gem-input {
+  width: 90%;
+  padding: 2%;
+  border-radius: 40%;
+}
+
+.search #search-bar {
+  width: 100%;
+  display: -webkit-flex;
+  display: -ms-flex;
+  display: flex;
+  -webkit-flex-direction: column;
+  -ms-flex-direction: column;
+  flex-direction: column;
+  -ms-align-items: flex-start;
+  align-items: flex-start;
+}
+
+.gem {
+  display: -webkit-flex;
+  display: -ms-flex;
+  display: flex;
+  -webkit-flex-direction: row;
+  -ms-flex-direction: row;
+  flex-direction: row;
+  justify-content: flex-start;
+}
+
+.dependencies {
+  display: -webkit-flex;
+  display: -ms-flex;
+  display: flex;
+  -webkit-flex-direction: column;
+  -ms-flex-direction: column;
+  flex-direction: column;
+  height: 100%;
+  -ms-align-items: space-between;
+  align-items: space-between;
 }

@@ -1,11 +1,11 @@
 $(document).ready(() =>{
 
   //putting together the ajax form
-$('.test-form').submit((e) =>{
+$('.gem-form').submit((e) =>{
   //prevent default behavior
     e.preventDefault();
     //define value to pass to backend
-    let gem = $('.test-class').val();
+    let gem = $('.gem-input').val();
     $.ajax({ //ajax call to hit the gem route
       method: 'POST',
       url: 'http://localhost:3000/search',
@@ -49,19 +49,20 @@ $('.test-form').submit((e) =>{
     favorite.click(()=>{
       myStorage.setItem(gem.name, gem.name)
     })
-    favorite.appendTo(newGem)
     gemName.appendTo(newGem);
+    favorite.appendTo(newGem);
+
 
     //add gem's information to the DOM
     let gemInfo = $('<div>', {
       class: 'gem-info'
     });
-    gemInfo.text("Information: ", gem.info);
+    gemInfo.text("Information: " +gem.info);
     gemInfo.appendTo(results);
 
     let dependencies = $('<div>', {
       class: 'dependencies'
-    }).appendTo(results)
+    }).text('Dependencies: ').appendTo(results)
 
     array.map((dependency) =>{
       return $('<a>', {
